@@ -1,15 +1,10 @@
-OBJS = main.o
-CC = g++
-DEBUG = -g
-CFLAGS = -Wall -Wextra -std=c++0x -pipe -g $(DEBUG)
-LFLAGS = -Wall $(DEBUG)
-TARGET = bin/mud
+CC=g++
+SOURCES=src/main.cpp
+CFLAGS=-Wall
+EXE=bin/mud
 
-mud: $(OBJS)
-	$(CC) $(LFLAGS) $(OBJS) -o $(TARGET)
-
-main.o : src/main.cpp
-	$(CC) $(CFLAGS) src/main.cpp
+$(EXE):
+	$(CC) $(SOURCES) -o $(EXE)
 
 clean:
-	\rm $(OBJS) $(TARGET)
+	rm $(EXE)
